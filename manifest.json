@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "Mono Tab",
   "version": "1.0.0",
-  "description": "A minimalist and efficient tag management extension program",
+  "description": "A simple and efficient browser homepage plugin",
   "chrome_url_overrides": {
     "newtab": "newtab.html"
   },
@@ -14,6 +14,6 @@
     "128": "icons/icon128.png"
   },
   "action": {
-    "default_title": "My Speed Dial"
+    "default_title": "Mono Tab"
   }
 }

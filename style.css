@@ -248,6 +248,10 @@ button:hover {
 }
 
 #settingsBtn {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 1000;
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -701,13 +705,13 @@ body.light-mode .icon-preview {
   max-width: 600px;
   margin: 0 auto;
   background: rgba(255, 255, 255, 0.15);
-  border-radius: 50px;
+  border-radius: 80px;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid rgba(255, 255, 255, 0.2);
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  overflow: visible;
+  overflow: hidden;
   position: relative;
 }
 
@@ -764,7 +768,7 @@ body.light-mode .icon-preview {
   border-radius: 0 50px 50px 0;
   color: white;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 18px;
   transition: all 0.3s ease;
   display: flex;
   align-items: center;
@@ -785,7 +789,7 @@ body.light-mode .icon-preview {
 #searchEngineSelect {
   padding: 8px 12px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 6px;
+  border-radius: var(--radius-xs);
   background: rgba(255, 255, 255, 0.1);
   color: var(--text-color);
   font-size: 14px;
