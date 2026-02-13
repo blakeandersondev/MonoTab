@@ -1,0 +1,891 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background: transparent;
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+  min-height: 100vh;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  color: #fff;
+  transition: none;
+  --text-color: #fff;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: linear-gradient(135deg, #1e1e1e, #3a3a3a);
+  background-repeat: no-repeat;
+  background-size: cover;
+  z-index: -2;
+  pointer-events: none;
+}
+
+.mono-header {
+  width: auto;
+  margin: 60px auto 0 auto;
+  padding: 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  border: none;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+.mono-header h1 {
+  font-family: 'Segoe UI', 'Arial', sans-serif;
+  font-size: 2.3em;
+  font-weight: 700;
+  letter-spacing: 2px;
+  margin: 0;
+  background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.glass {
+  width: 90vw;
+  max-width: 1100px;
+  box-sizing: border-box;
+  margin: 60px auto 60px auto;
+  padding: 36px 20px 36px 20px;
+  background: rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  backdrop-filter: blur(28px) saturate(1.2);
+  -webkit-backdrop-filter: blur(28px) saturate(1.2);
+  border: 1.5px solid rgba(255,255,255,0.25);
+  color: #fff;
+  transition: box-shadow 0.3s;
+  overflow: visible;
+}
+
+.input-section {
+  margin-top: 24px;
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+}
+
+.input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.input-group input {
+  flex: 1;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: 14px;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: rgba(255, 255, 255, 0.4);
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.input-group button {
+  padding: 12px 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.input-group button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(102, 126, 234, 0.4);
+}
+
+button {
+  padding: 12px 22px;
+  border-radius: 8px;
+  border: none;
+  background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+  color: #fff;
+  font-weight: bold;
+  font-size: 1.05em;
+  cursor: pointer;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: background 0.2s, box-shadow 0.2s, transform 0.1s;
+}
+button:hover {
+  background: linear-gradient(90deg, #fc5c7d 0%, #6a82fb 100%);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.13);
+  transform: translateY(-2px) scale(1.04);
+}
+
+.dial-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, 110px);
+  gap: 32px 32px;
+  width: 100%;
+  overflow: visible;
+  align-items: stretch;
+  justify-content: center;
+}
+
+.dial-card {
+  background: rgba(255,255,255,0.22);
+  border-radius: 16px;
+  padding: 16px 6px 10px 6px;
+  text-align: center;
+  position: relative;
+  backdrop-filter: blur(12px) saturate(1.1);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  transition: box-shadow 0.2s, transform 0.15s;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 110px;
+  height: 110px;
+  width: 110px;
+}
+
+.dial-card:hover {
+  box-shadow: 0 8px 24px rgba(0,0,0,0.18);
+  transform: translateY(-4px) scale(1.03);
+}
+
+.dial-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-decoration: none;
+  color: #fff;
+  gap: 8px;
+  height: 100%;
+  justify-content: space-between;
+  padding: 12px 8px;
+  position: relative;
+}
+
+.dial-link img {
+  width: 52px;
+  height: 52px;
+  margin-bottom: 0;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+  background: #fff2;
+  flex-shrink: 0;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.dial-card button {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: rgba(255,255,255,0.38);
+  border: none;
+  color: #fff;
+  border-radius: 6px;
+  cursor: pointer;
+  padding: 2px 8px;
+  font-size: 1em;
+  transition: background 0.2s, transform 0.1s;
+}
+.dial-card button:hover {
+  background: #fc5c7d;
+  color: #fff;
+  transform: scale(1.1);
+}
+
+.tab-switcher {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  padding: 20px;
+}
+.tab {
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.15);
+  border-radius: 8px;
+  cursor: pointer;
+  color: white;
+  backdrop-filter: blur(5px);
+}
+.tab.active {
+  background: rgba(255,255,255,0.35);
+  font-weight: bold;
+}
+.tab-switcher button {
+  padding: 8px 14px;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+#settingsBtn {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  color: #fff;
+  font-size: 2em;
+  border: none;
+  box-shadow: 0 4px 16px rgba(0,0,0,0.18);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: box-shadow 0.2s, background 0.2s, transform 0.1s;
+}
+#settingsBtn:hover {
+  background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  transform: scale(1.08);
+}
+
+#themeToggleWrapper {
+  position: fixed;
+  top: 12px;
+  right: 16px;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.theme-label {
+  font-size: 1.08em;
+  font-weight: 500;
+  padding: 6px 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.7);
+  color: #23242a;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+  user-select: none;
+  transition: background 0.2s, color 0.2s;
+}
+body.dark-mode .theme-label {
+  background: rgba(35,36,42,0.85);
+  color: #FFD600;
+}
+body.light-mode .theme-label {
+  background: rgba(255,255,255,0.7);
+  color: #23242a;
+}
+
+#themeToggleBtn {
+  position: relative;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent !important;
+  color: inherit;
+  font-size: 1.5em;
+  border: none;
+  box-shadow: none;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, transform 0.1s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+#themeToggleBtn:hover {
+  background: rgba(252,92,125,0.12);
+  color: #fc5c7d;
+  transform: scale(1.08);
+}
+.theme-icon svg {
+  display: block;
+}
+body.light-mode .theme-icon-dark {
+  display: none !important;
+}
+body.light-mode .theme-icon-light {
+  display: inline !important;
+}
+body.dark-mode .theme-icon-dark {
+  display: inline !important;
+}
+body.dark-mode .theme-icon-light {
+  display: none !important;
+}
+
+body.light-mode {
+  background: #e6e7ee !important;
+  --text-color: #222;
+}
+body.light-mode .glass {
+  background: rgba(255,255,255,0.65);
+  color: #222;
+  box-shadow: 0 8px 32px rgba(180,180,200,0.13);
+  border: 1.5px solid #e0e0e0;
+  backdrop-filter: blur(18px) saturate(1.1);
+  -webkit-backdrop-filter: blur(18px) saturate(1.1);
+}
+body.light-mode .dial-card {
+  background: rgba(255,255,255,0.95);
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+}
+body.light-mode .dial-link {
+  color: #222;
+}
+body.light-mode .input-group input {
+  background: rgba(255,255,255,0.95);
+  border: 1px solid #bbb;
+  color: #222;
+}
+body.light-mode .input-group input:focus {
+  background: #fff;
+  border-color: #6a82fb;
+}
+body.light-mode .input-group input::placeholder {
+  color: #888;
+}
+
+body.dark-mode {
+  background: #23242a !important;
+  --text-color: #fff;
+}
+body.dark-mode .glass {
+  background: rgba(255,255,255,0.18);
+  color: #fff;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25);
+  border: 1.5px solid rgba(255,255,255,0.25);
+}
+body.dark-mode .dial-card {
+  background: rgba(255,255,255,0.22);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.10);
+}
+body.dark-mode .dial-link {
+  color: #fff;
+}
+
+body::before {
+  display: none !important;
+}
+
+/* 模态框样式 */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  width: 90%;
+  max-width: 500px;
+  max-height: 80vh;
+  overflow-y: auto;
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 24px 24px 16px 24px;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.5em;
+  font-weight: 600;
+  color: #333;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #666;
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 50%;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.close-btn:hover {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.modal-body {
+  padding: 24px;
+}
+
+.setting-section {
+  margin-bottom: 32px;
+}
+
+.setting-section h3 {
+  margin: 0 0 16px 0;
+  font-size: 1.2em;
+  font-weight: 600;
+  color: #333;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+
+.setting-item label {
+  font-size: 1em;
+  color: #333;
+  cursor: pointer;
+}
+
+.setting-item input[type="checkbox"] {
+  width: 20px;
+  height: 20px;
+  accent-color: #6a82fb;
+}
+
+/* 深色模式下的模态框 */
+body.dark-mode .modal-content {
+  background: rgba(35, 36, 42, 0.95);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+body.dark-mode .modal-header h2,
+body.dark-mode .setting-section h3,
+body.dark-mode .setting-item label {
+  color: #fff;
+}
+
+body.dark-mode .input-group input {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.3);
+  color: #fff;
+}
+
+body.dark-mode .input-group input::placeholder {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.dial-name {
+  display: block;
+  height: 22px;
+  line-height: 22px;
+  font-size: 13px;
+  color: var(--text-color, #fff);
+  text-align: center;
+  margin-top: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  transition: opacity 0.2s;
+  flex-shrink: 0;
+  width: 100%;
+  padding: 0 4px;
+  box-sizing: border-box;
+}
+
+.dial-name.hidden {
+  visibility: hidden;
+  height: 0;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+
+/* 当名称隐藏时，调整图标大小和位置 */
+.dial-link.no-name img {
+  width: 60px;
+  height: 60px;
+  margin: 0;
+}
+
+/* 当名称隐藏时，让整个链接垂直居中，但保持卡片原有高度 */
+.dial-link.no-name {
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  padding: 0;
+}
+
+/* 图标上传相关样式 */
+.icon-upload-section {
+  margin-top: 16px;
+  padding: 16px;
+  border: 2px dashed rgba(255, 255, 255, 0.3);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.icon-option-tabs {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.icon-tab {
+  flex: 1;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  color: var(--text-color);
+  font-size: 14px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.icon-tab:hover {
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.icon-tab.active {
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  border-color: transparent;
+  color: white;
+}
+
+.icon-upload-content,
+.icon-url-content {
+  margin-bottom: 12px;
+}
+
+.icon-url-content .input-group {
+  margin-bottom: 0;
+}
+
+.icon-upload-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  color: var(--text-color);
+  font-size: 14px;
+  transition: all 0.2s;
+}
+
+.icon-upload-label:hover {
+  color: #6a82fb;
+}
+
+.icon-preview {
+  margin-top: 12px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  position: relative;
+}
+
+.icon-preview img {
+  width: 32px;
+  height: 32px;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.remove-icon-btn {
+  background: rgba(255, 64, 64, 0.9);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  font-size: 16px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.remove-icon-btn:hover {
+  background: rgba(255, 64, 64, 1);
+}
+
+/* 亮色模式下的图标上传样式 */
+body.light-mode .icon-upload-section {
+  border-color: rgba(0, 0, 0, 0.2);
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light-mode .icon-tab {
+  background: rgba(0, 0, 0, 0.1);
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+body.light-mode .icon-tab:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+body.light-mode .icon-tab.active {
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  color: white;
+}
+
+body.light-mode .icon-preview {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+/* 搜索框样式 */
+.search-section {
+  width: auto;
+  margin: 30px auto 0 auto;
+  text-align: center;
+  z-index: 1;
+  position: relative;
+}
+
+.search-container {
+  display: flex;
+  align-items: center;
+  max-width: 600px;
+  margin: 0 auto;
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 50px;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+  overflow: visible;
+  position: relative;
+}
+
+.search-engine-indicator {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  color: white;
+  font-size: 18px;
+  border-radius: 50%;
+  margin: 8px 0 8px 8px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  flex-shrink: 0;
+  position: relative;
+  z-index: 2;
+}
+
+.search-engine-indicator:hover {
+  transform: scale(1.1);
+  box-shadow: 0 4px 12px rgba(106, 130, 251, 0.4);
+}
+
+#searchEngineIcon {
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  border-radius: 4px;
+}
+
+#searchInput {
+  flex: 1;
+  padding: 16px 20px;
+  border: none;
+  background: transparent;
+  color: var(--text-color, #fff);
+  font-size: 16px;
+  outline: none;
+  border-radius: 0;
+  min-width: 0;
+}
+
+#searchInput::placeholder {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+#searchBtn {
+  padding: 16px 12px;
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  border: none;
+  border-radius: 0 50px 50px 0;
+  color: white;
+  cursor: pointer;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 60px;
+  flex-shrink: 0;
+  margin-right: 8px;
+  position: relative;
+  z-index: 1;
+}
+
+#searchBtn:hover {
+  background: linear-gradient(135deg, #fc5c7d 0%, #6a82fb 100%);
+  transform: scale(1.05);
+}
+
+/* 设置中的下拉选择框样式 */
+#searchEngineSelect {
+  padding: 8px 12px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.1);
+  color: var(--text-color);
+  font-size: 14px;
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 8px center;
+  background-size: 16px;
+  padding-right: 32px;
+}
+
+#searchEngineSelect:focus {
+  border-color: #6a82fb;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+/* 亮色模式下的样式 */
+body.light-mode .search-engine-indicator {
+  background: linear-gradient(135deg, #6a82fb 0%, #fc5c7d 100%);
+  color: white;
+}
+
+body.light-mode #searchInput {
+  color: #333;
+}
+
+body.light-mode #searchInput::placeholder {
+  color: rgba(0, 0, 0, 0.6);
+}
+
+body.light-mode #searchEngineSelect {
+  background: rgba(255, 255, 255, 0.8) url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(0,0,0,0.6)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 8px center;
+  background-size: auto, 16px;
+  border-color: rgba(0, 0, 0, 0.2);
+  color: #333;
+}
+
+body.light-mode #searchEngineSelect:focus {
+  background: rgba(255, 255, 255, 0.9) url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(0,0,0,0.8)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e") no-repeat right 8px center;
+  background-size: auto, 16px;
+  border-color: #6a82fb;
+}
+
+.search-engine-dropdown {
+  position: absolute;
+  left: 0;
+  top: 100%;
+  min-width: 160px;
+  background: rgba(40, 40, 50, 0.98);
+  border-radius: 12px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+  z-index: 1002;
+  padding: 8px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid rgba(255,255,255,0.13);
+  margin-top: 4px;
+}
+
+.search-engine-dropdown .engine-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 22px 10px 18px;
+  font-size: 15px;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  transition: background 0.18s, color 0.18s;
+  outline: none;
+}
+
+.search-engine-dropdown .engine-option.selected {
+  background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+  color: #fff;
+}
+
+.search-engine-dropdown .engine-option:hover {
+  background: rgba(106,130,251,0.13);
+  color: #fff;
+}
+
+body.light-mode .search-engine-dropdown {
+  background: rgba(255,255,255,0.98);
+  border: 1px solid rgba(0,0,0,0.10);
+}
+body.light-mode .search-engine-dropdown .engine-option {
+  color: #222;
+}
+body.light-mode .search-engine-dropdown .engine-option.selected {
+  background: linear-gradient(90deg, #6a82fb 0%, #fc5c7d 100%);
+  color: #fff;
+}
+body.light-mode .search-engine-dropdown .engine-option:hover {
+  background: rgba(106,130,251,0.10);
+  color: #222;
+}
