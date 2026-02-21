@@ -4,8 +4,11 @@
   <meta charset="UTF-8" />
   <title>Mono Tab</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="icon" type="image/png" href="icons/icon128.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/icon128.png" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/icon128.png" />
+  <link rel="icon" type="image/png" sizes="128x128" href="icons/icon128.png" />
   <link rel="icon" type="image/svg+xml" href="icons/icon128.svg" />
+  <link rel="shortcut icon" href="icons/icon128.png" />
 </head>
 <body>
   <div id="themeToggleWrapper">
@@ -41,9 +44,7 @@
       <button id="searchBtn" title="搜索">🔍</button>
     </div>
   </div>
-  <div class="glass">
-    <div id="dial-container" class="dial-grid"></div>
-  </div>
+  <div id="dial-container" class="dial-grid"></div>
   <button id="settingsBtn" title="设置">⚙️</button>
   
   <!-- 设置模态框 -->
@@ -51,7 +52,7 @@
     <div class="modal-content">
       <div class="modal-header">
         <h2>设置</h2>
-        <button id="closeModal" class="close-btn">×</button>
+        <button id="closeModal" class="close-btn" type="button">×</button>
       </div>
       <div class="modal-body">
         <div class="setting-section">
