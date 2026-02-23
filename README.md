@@ -1,3 +1,5 @@
+![](assets/large_promo/LargePromoTile.png)
+
 # Mono Tab
 
 Mono Tab is a minimalist new tab page for Chrome that combines a speed dial grid, search, and lightweight settings.
